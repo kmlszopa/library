@@ -26,7 +26,7 @@ public class BookDaoSqlite implements BookDao {
     }
 
     private void createTable(){
-        String sql="CREATE TABLE IF NOT EXIST Books ("
+        String sql="CREATE TABLE IF NOT EXISTS Books ("
                 +"id INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 "title TEXT, "
                 +"author TEXT, "
@@ -41,17 +41,21 @@ public class BookDaoSqlite implements BookDao {
             System.out.println("Nie udało sie wykonać SQL "+e.getMessage());
         }
     }
-    @Override
+
+    public static void main(String[] args) {
+        BookDaoSqlite bookDaoSqlite=new BookDaoSqlite();
+    }
+
     public void addBook(Book book) {
 
     }
 
-    @Override
+
     public void removeBook(Book book) {
 
     }
 
-    @Override
+
     public List<Book> getAllBooks() {
         return null;
     }
