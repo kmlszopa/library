@@ -21,6 +21,12 @@ public class Book {
         return title;
     }
 
+    public Book(String title, String author, int pages) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }

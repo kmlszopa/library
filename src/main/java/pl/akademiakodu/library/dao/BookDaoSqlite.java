@@ -43,17 +43,26 @@ public class BookDaoSqlite implements BookDao {
     }
 
     public static void main(String[] args) {
-        BookDaoSqlite bookDaoSqlite=new BookDaoSqlite();
+        BookDaoSqlite bookDaoSqlite = new BookDaoSqlite();
+        bookDaoSqlite.addBook( new Book("Pozytywne myślenie","Brayan Stacey",359));
+
     }
 
     public void addBook(Book book) {
+        String sql = "INSERT INTO Books (title,author,pages)"
+                +"VALUES ('"+book.getTitle()+"','"+book.getAuthor()+"',"+book.getPages()+")";
+        try{
+            Statement statement=connection.createStatement();
+            statement.execute(sql);
 
+        }catch (SQLException e){
+            System.out.println("Nie udało sie wykonać SQL "+e.getMessage());
+        }
     }
 
 
     public void removeBook(Book book) {
-
-    }
+       }
 
 
     public List<Book> getAllBooks() {
